@@ -1,0 +1,27 @@
+{
+  "name": "header",
+  "version": "1.0.0",
+  "description": "request header parser microservice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "api"
+  ],
+  "engines": {
+  "node": "6.10.0"
+},
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/ahmadabdolsaheb/request-header-parser.git"
+},
+  "author": "ahmad abdolsaheb",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}
