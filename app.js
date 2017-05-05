@@ -8,7 +8,7 @@ var app = module.exports = express();
 //Get call to return json
 app.get('/', function(req,res){
 // respond a json with ip/language/and operating system
-    res.json({ip: req.headers['x-forwarded-for'] ||
+    res.json({ip: (req.headers['x-forwarded-for'] ||
      req.connection.remoteAddress ||
      req.socket.remoteAddress ||
      req.connection.socket.remoteAddress).split(",")[0],
