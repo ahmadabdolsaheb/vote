@@ -12,16 +12,17 @@
     "api"
   ],
   "engines": {
-  "node": "6.10.0"
-},
+    "node": "6.10.0"
+  },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/ahmadabdolsaheb/url-short.git"
-},
+    "type": "git",
+    "url": "https://github.com/ahmadabdolsaheb/url-short.git"
+  },
   "author": "ahmad abdolsaheb",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "mongoose": "^4.9.9"
   }
 }
