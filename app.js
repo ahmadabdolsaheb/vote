@@ -4,28 +4,43 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
 var validify = require('./validify.js');
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/url')
+var models = require('./models.js');
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Urls')
 
 // Define the port to run on
 app.set('port', 3000);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/new/:OrigUrl(*)', function(req, res){
-  var longUrl = req.params.OrigUrl;
-  var shortUrl = ''; // the shortened URL we will return
-  
-  if(validify.ValidURL(longUrl)){
-    res.json({ longUrl });
-  }
-  else{
-    res.json({ error : "URL not found"});
+app.get('/new/*', function(req, res) {
+  var longUrl = req.params[0];
+  // the shortened URL we will return
+
+  console.log(longUrl);
+
+
+  if (validify.ValidURL(longUrl)) {
+    var shortUrl = Math.floor(Math.random() * 10000000).toString();
+    var data = new models({original: longUrl, shortened: shortUrl, _id:shortUrl });
+    console.log("long: " + longUrl);
+    console.log("short: " + shortUrl);
+    console.log("data: " + data)
+
+    data.save(/*function(err) {
+      if (err) {
+        return res.json({message: 'error with saving to database'});
+      }
+      res.json({message: 'post created!'});
+    }*/);
+
+    res.json({data: data});
+
+  } else {
+    res.json({error: "a complete URL format not found"});
   }
 
 });
-
-
 
 // Listen for requests
 var server = app.listen(app.get('port'), function() {
