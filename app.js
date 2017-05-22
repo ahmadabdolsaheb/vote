@@ -7,9 +7,9 @@ var validify = require('./validify.js');
 var models = require('./models.js');
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Urls')
+var port = process.env.PROCESS || 3000;
 
-// Define the port to run on
-app.set('port', 3000);
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -49,9 +49,11 @@ app.get('/:shortenedUrl', function(req, res) {
     res.redirect(301, data.original)
   });
 });
+// port to be implemented
+
+
 
 // Listen for requests
-var server = app.listen(app.get('port'), function() {
-  var port = server.address().port;
+app.listen(port , function() {
   console.log('Magic happens on port ' + port);
 });
