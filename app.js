@@ -19,27 +19,35 @@ app.get('/new/*', function(req, res) {
 
   console.log(longUrl);
 
-
   if (validify.ValidURL(longUrl)) {
     var shortUrl = Math.floor(Math.random() * 10000000).toString();
-    var data = new models({original: longUrl, shortened: shortUrl, _id:shortUrl });
+    var data = new models({original: longUrl, shortened: shortUrl, _id: shortUrl});
     console.log("long: " + longUrl);
     console.log("short: " + shortUrl);
     console.log("data: " + data)
 
-    data.save(/*function(err) {
+    data.save(function(err) {
       if (err) {
-        return res.json({message: 'error with saving to database'});
+        return res.send();
       }
-      res.json({message: 'post created!'});
-    }*/);
+    });
 
-    res.json({data: data});
+    res.json(data);
 
   } else {
     res.json({error: "a complete URL format not found"});
   }
 
+});
+
+app.get('/:shortenedUrl', function(req, res) {
+  var shortenedUrl = req.params.shortenedUrl;
+  models.findOne({
+    "_id": shortenedUrl
+  }, (err, data) => {
+    if(err){return res.send();}
+    res.redirect(301, data.original)
+  });
 });
 
 // Listen for requests
