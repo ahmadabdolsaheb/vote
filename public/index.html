@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
 <body>
-<h2>URL-shortener</h2>
-<p>Example creation usage:
-this url/new/https://www.google.com
-this url/new/http://foo.com:80
-Example creation output
-{ "original":"https://www.google.com/watch/user/channels/", "short_url":"https://little-url.herokuapp.com/8170" }
-Usage:
-https://little-url.herokuapp.com/28711234
-Will redirect to:
-https://www.google.com/</p>
-<p></p>
-<p></p>
+  <div class="container">
+    <h2>URL-shortener usage Example:</h2>
+    <p><b>Entering the following url</b></p>
+    <p><i>https://urlsh8.herokuapp.com/new/https://www.youtube.com/
+    </i></p>
+    <p><b>will return a json with a shortened url number
+    </b></p>
+    <pre><code>{
+"original": "https://www.youtube.com/",
+"shortened": "6237986",
+"_id": 6237986
+}
+</code></pre>
+    <p><b>if the shortened url is used such as the following:
+    </b></p>
+    <p><i>https://urlsh8.herokuapp.com/6237986
+    </i></p>
+    <p><b>the app will redirect you to the original website
+    </b></p>
+  </div>
 </body>
+
 </html>
