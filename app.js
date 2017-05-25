@@ -7,7 +7,7 @@ var validify = require('./validify.js');
 var models = require('./models.js');
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Urls')
-var port = process.env.PROCESS || 3000;
+var port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
