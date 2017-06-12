@@ -1,7 +1,7 @@
 {
-  "name": "URL Short",
-  "description": "URL shortener microservice",
-  "repository": "https://github.com/ahmadabdolsaheb/url-short.git",
+  "name": "votivot",
+  "description": "FCC voting app",
+  "repository": "https://git.heroku.com/votivot.git",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "heroku"],
   "image": "heroku/nodejs"
